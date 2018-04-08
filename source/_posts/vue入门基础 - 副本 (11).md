@@ -1,7 +1,6 @@
 ﻿---
 title: vue入门基础
 date: 2016-10-06
-tag: vue
 ---
 #### Hello World
 ```javascript
