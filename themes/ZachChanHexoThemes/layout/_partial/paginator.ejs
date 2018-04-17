@@ -1,0 +1,19 @@
+<hr>
+<% if (page.total > 1){ %>
+  <nav class="page-nav">
+      <ul class="uk-pagination uk-flex-center" uk-margin>
+          <%- paginator({
+            prev_text:__('Paginator.Prev'),
+            next_text:__('Paginator.Next')
+          }) %>
+      </ul>
+  </nav>
+<% } %>
+
+<div>
+<%- page.show_all%>
+</div>
+
+
+
+

@@ -1,9 +1,17 @@
 ﻿---
 title: vue入门基础
-date: 2016-10-06
+date: 2017-01-06
+categories:
+- vue
+comments: true
 tag: vue
 ---
+
+
 #### Hello World
+
+
+
 ```javascript
 <body>
 
@@ -21,7 +29,7 @@ tag: vue
 　　<!-- <br> {{message?message:1}} -->
 
 <br> {{*message}} {{{message}}}
-
+<!-- more -->
 </div>
 </body>
 <script src="vue1.0.28.js"></script>

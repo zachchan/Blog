@@ -3,16 +3,16 @@
 title: ZachChan's Blog
 subtitle:
 description:
-keywords:
+keywords: ZachChan's Blog
 author: Zach Chan
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://blog.zachchan.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: /list/:post_title.html
 permalink_defaults:
 
 # Directory
@@ -38,7 +38,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
   
 # Home page setting
@@ -47,7 +47,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 5
   order_by: -date
   
 # Category & Tag
@@ -70,7 +70,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: zachHexo
+theme: ZachHexo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -100,7 +100,7 @@ valine: ## https://valine.js.org
   enable: false ## If you want to use Valine comment system, please set the value to true.
   appid: ## Your LeanCloud application App ID, e.g. pRBBL2JR4N7kLEGojrF0MsSs-gzGzoHsz
   appkey: ## Your LeanCloud application App Key, e.g. tjczHpDfhjYDSYddzymYK1JJ
-  notify: false ## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-ÆÀÂÛÏµÍ³ÖÐµÄÓÊ¼þÌáÐÑÉèÖÃ
+  notify: false ## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½Ðµï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   verify: false ## Validation code.
   placeholder: Just so so ## Comment box placeholders.
   avatar: 'mm' ## Gravatar type, see https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
@@ -116,7 +116,7 @@ google_analytics: ## Your Google Analytics tracking id, e.g. UA-42425684-2
 baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
 show_category_count: false ## If you want to show the count of categories in the sidebar widget please set the value to true.
 toc_number: true ## If you want to add list number to toc please set the value to true.
-shareto: false ## If you want to use the share button please set the value to true, you must have hexo-helper-qrcode installed.
+shareto: true ## If you want to use the share button please set the value to true, you must have hexo-helper-qrcode installed.
 busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
 widgets_on_small_screens: false ## Set to true to enable widgets on small screens.
 canvas_nest:
@@ -157,10 +157,10 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - links
 
 links:
-  - title: Ö÷Ò³
-    url: https://zachchan.com/
-  - title: ÔÆÅÌ
-    url: https://pan.zachchan.com/
+  - title: 
+    url: 
+  - title: 
+    url: 
 
 timeline:
   - num: 1
@@ -177,6 +177,6 @@ js: js
 css: css
 
 # Theme version
-version: 0.0.0
+version: 0.1.0
 
 mathjax2: true

@@ -1,0 +1,53 @@
+﻿<%- partial('_partial/slider') %>
+<ul class="uk-list uk-list-divider">
+  <li style="text-align:center;font-size: 14px;margin-top: 20px;color: #949090;">本页最多显示 10 篇文章</li>
+</ul>
+<hr>
+
+
+
+        <% page.posts.each(function (post) { %>
+
+        
+
+            <div class="uk-card  uk-grid-collapse uk-child-width-1-2@s uk-margin " uk-grid>
+                <div class="uk-card-media-left uk-cover-container uk-card-hover uk-card-body uk-light uk-inline-clip uk-transition-toggle">
+                    <img src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+                    <canvas width="600" height="400"></canvas>
+                    <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default">
+                         
+                            <a style="color:black" href="<%- url_for(post.path) %>" class="uk-position-bottom uk-overlay uk-overlay-default uk-text-center " >阅读全文</a>
+                       
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card-body">
+                        <h2 class="uk-card-title">
+                            <a class="uk-link-heading" href="<%- url_for(post.path) %>"><%- post.title %></a>
+                        </h2>
+                        <p class="uk-comment-meta uk-margin-remove-top">
+                            <a class="uk-link-reset" href="#"><%- date(post.date, "YYYY-MM-DD") %></a>
+                            <span class="uk-label">我是标签</span>
+                            
+                        </p>
+                        <p ><%- post.excerpt %></p>
+                    </div>
+                   
+                </div>
+               
+            </div>
+
+
+
+
+        <% }) %>
+
+
+
+
+ 
+
+<%- partial('_partial/paginator') %>
+
+
+
