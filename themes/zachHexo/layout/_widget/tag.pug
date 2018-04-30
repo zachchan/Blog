@@ -1,0 +1,6 @@
+ul(uk-accordion)
+  li
+    a.uk-accordion-title(href="#")= ' ' + __('tags')
+    div.uk-accordion-content
+      .tagcloud
+        != tagcloud({min_font: 15, max_font: 15, amount: 100, orderby: 'count'})

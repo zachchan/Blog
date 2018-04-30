@@ -1,0 +1,10 @@
+ul(uk-accordion)
+  li
+    a.uk-accordion-title(href="#")= ' ' + __('blogroll')
+    div.uk-accordion-content
+      - for (var i in theme.links)
+        p
+          a(href=theme.links[i].url title=theme.links[i].title target='_blank') #{theme.links[i].title}
+
+
+

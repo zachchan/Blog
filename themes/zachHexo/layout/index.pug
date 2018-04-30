@@ -1,0 +1,63 @@
+extends base
+
+block title
+  if config.subtitle
+    title= config.title + ' | ' + config.subtitle
+  else
+    title= config.title
+
+block content
+  for post in page.posts.toArray()
+    li
+      article(class="uk-comment uk-comment-primary  uk-visible-toggle")
+        header(class="uk-comment-header uk-position-relative")
+          div(class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="")
+            div(class="uk-width-auto uk-first-column")
+                img(class="uk-comment-avatar" src="/img/vue.png" width="80" height="80" alt="")
+            div(class="uk-width-expand")
+                h4(class="uk-comment-title uk-margin-remove")
+                  include _partial/helpers.pug
+                  a(class="uk-link-reset" href=url_for(post.path))
+                    + title(post)
+                p(class="uk-comment-meta uk-margin-remove-top")
+                  a(class="uk-link-reset" href="#")=post.date.format(config.date_format)
+          div(class="uk-position-top-right uk-position-small uk-hidden-hover")
+            a(class="uk-link-muted" href=url_for(post.path))
+              = ""
+        div(class="uk-comment-body")
+          p
+            if post.description
+                .post-content
+                != post.description
+            else if post.excerpt
+              .post-content
+                != post.excerpt
+            else if post.content
+              - var br = 0
+              - for (var i = 0; i < 5; ++i) {
+                - br = post.content.indexOf('\n',br+1)
+                if br<0
+                  - break
+                if br >150
+                  - break
+              - }
+              if br < 0
+                .post-content
+                  != post.content
+              else
+                .post-content
+                  != post.content.substring(0, br)
+            p(class='readmore')
+                a(class='uk-button uk-button-primary uk-button-small' href=url_for(post.path))= __('Readmore')
+  
+
+
+  include _partial/paginator.pug
+  if theme.disqus
+    script(id='dsq-count-scr', src='//'+ theme.disqus + '.disqus.com/count.js', async)
+  if theme.changyan
+    script#cy_cmt_num(src='https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=' + theme.changyan, async)
+  if config.mathjax
+    include _partial/mathjax.pug
+  if config.mathjax2
+    include _partial/mathjax2.pug

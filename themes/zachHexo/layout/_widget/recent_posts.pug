@@ -1,0 +1,5 @@
+ul(uk-accordion)
+  li.uk-open
+    a.uk-accordion-title(href="#")= ' ' + __('recent')
+    div.uk-accordion-content
+      != list_posts({amount: 5})

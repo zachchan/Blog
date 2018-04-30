@@ -1,0 +1,57 @@
+﻿include _partial/helpers.pug
+
+if page.title
+  - var current_title = page.title
+else
+  - var current_title = config.title
+
+if config.feed
+  case config.feed.type
+    when 'rss2'
+      - var feed_type='application/rss+xml'
+    when 'atom'
+    default
+      - var feed_type='application/atom+xml'
+
+doctype html
+html(lang=config.language)
+
+  include _partial/head.pug
+
+  body: .uk-offcanvas-content
+          #testzach
+              nav(class="uk-navbar-container" uk-navbar style="z-index: 980;" uk-sticky="bottom: #offset")
+                  div(class="uk-navbar-left")
+                          ul(class="uk-navbar-nav")
+                              li(class="uk-active")
+                                a(href="/")= "首页"
+                              li
+                                a(href="/archives/")= "归档"
+                              li
+                                a(href="/about/")= "关于"
+
+                  div(class="uk-navbar-right")
+                          ul(class="uk-navbar-nav")
+                              li
+                                a(class="uk-navbar-toggle uk-button uk-button-default uk-margin-small-right" uk-navbar-toggle-icon href="#" uk-toggle="target: #offcanvas-reveal" style="outline: none;border: none;margin: 0;padding: 0;right: 40px;")  
+          .body_container
+            #header
+              .site-name
+                h1.hidden.uk-article-title= current_title 
+                a#logo.uk-article-title.uk-link-reset(href=url_for('.') uk-tooltip="title: 微信：cyk-china; pos: right")= config.title
+                p.description.uk-article-meta.uk-text-primary()= config.subtitle||"智者务其实，愚者争虚名。                 ——司马懿"
+
+              #nav-menu
+                - for (var i in theme.menu)
+                  +a_with_current(theme.menu[i].directory, __(theme.menu[i].page), theme.menu[i].icon)
+                        
+            hr(class="uk-divider-icon hexozachico")
+            #layout.pure-g
+              .pure-u-1.pure-u-md-4-4: div: ul.uk-comment-list
+                block content
+
+              .pure-u-1.pure-u-md-4-4
+                != partial('_partial/footer.pug')
+
+          include _partial/totop.pug
+          include _partial/after_footer.pug

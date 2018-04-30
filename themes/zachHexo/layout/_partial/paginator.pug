@@ -1,0 +1,7 @@
+
+if page.next || page.prev
+  nav
+    ul(class="uk-pagination uk-flex-center" uk-margin)
+      != paginator({prev_text: __('previous'), next_text: __('next')})
+
+

@@ -1,0 +1,10 @@
+if page.next || page.prev
+  ul.uk-pagination
+    if page.prev
+        li
+            a.uk-margin-small-left(href=url_for(page.prev_link ? page.prev_link : page.prev.path))= page.prev.title
+                span.uk-margin-small-zach-right(uk-pagination-previous)
+    if page.next
+        li.uk-margin-auto-left
+            a(href=url_for(page.next_link ? page.next_link : page.next.path))= page.next.title
+                span.uk-margin-small-left(uk-pagination-next)
